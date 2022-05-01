@@ -90,6 +90,7 @@
   .index main{
     padding: 0 50px;
   }
+
   /* seccion productos */
   .index__products {
     flex-direction: row;
