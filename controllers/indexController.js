@@ -1,6 +1,7 @@
 const fs = require('fs');
-const path = require('path')
-const tutorials = require('')
+const path = require('path');
+const tutorials = require('../data/tutorials');
+const products = require('../data/products')
 
 module.exports = {
     index : (req, res) => {
@@ -11,6 +12,12 @@ module.exports = {
         const tablets = product.filter(product => product. category === 2)
         const computadoras = product.filter(product => product. category === 3)
 
-        res.render('index', { title: 'Express' })
+        return res.render('index', {
+            celulares : celulares,
+            tablets,
+            comutadoras,
+            tutorials
+        
+        })
     }
 }

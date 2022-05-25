@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
+const categories = require('../data/categories')
+const products = require('../data/products')
+
 module.exports = {
     add : (req, res) => {
         return res.render('productAdd', {
@@ -78,8 +81,17 @@ module.exports = {
         })
     },
     cart : (req, res) => res.render('productCart'),
-    getByCategories : (req, res) => {
-        return res.send(req.params)
+    getByCategory : (req, res) => {
+
+        const {idCategory} = req.params;
+
+        const {name, products} = categories.find(category => category.id === +idCategory)
+
+     /* return res.send(category) */
+        return res.render('categories', {
+            name,
+            products
+        })
     },
     remove : (req, res) => {
         const {id} = req.params;
